@@ -32,7 +32,6 @@ void setup() {
 }
 
 void loop() {
-
     if (digitalRead(proximityPin) == HIGH) {
       Serial.println("Metal Detected");
       rotateToBin(3);
@@ -48,21 +47,19 @@ void loop() {
       }
   if (digitalRead(IR_SENSOR) == LOW) {
     Serial.println("Object Detected");
-
     openLid();
     delay(2000);
     closeLid();
     delay(500);
-
-
-    }
-
-    delay(1000);  // Short delay after sorting
+     }
+      delay(1000);  // Short delay after sorting
     resetToHome();  // Always return to home (bin 0)
     delay(4000);    // Wait before next object
   }
 }
 
+
+    
 void openLid() {
   lidServo.write(90);
   Serial.println("Lid Opened");
